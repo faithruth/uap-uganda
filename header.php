@@ -26,34 +26,39 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'uap-uganda' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$uap_uganda_description = get_bloginfo( 'description', 'display' );
-			if ( $uap_uganda_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $uap_uganda_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<hr>
+		<div class="uap-main-header">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg">
+					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<?php
+					$custom_logo_id = get_theme_mod( 'custom_logo' );
+					$logo = wp_get_attachment_image_src( $custom_logo_id , 'thumbnail' );
+					if ( has_custom_logo() ) {
+							echo '<img src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+					} else {
+							echo '<h1>'. get_bloginfo( 'name' ) .'</h1>';
+					}
+					?>
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<?php
+						wp_nav_menu( array(
+							'theme_location'    => 'menu-1',
+							'menu_id'        => 'primary-menu',
+							'depth'             => 2,
+							'container'         => 'div',
+							'container_class'   => 'collapse navbar-collapse',
+							'container_id'      => 'navbarTogglerDemo02',
+							'menu_class'        => 'navbar-nav ml-auto mt-2 mt-lg-0',
+						) );
+					?>
+				</nav>
+			</div>
+		</div>
+		<hr>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'uap-uganda' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		
 	</header><!-- #masthead -->

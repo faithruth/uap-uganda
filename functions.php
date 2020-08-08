@@ -145,8 +145,12 @@ add_action( 'widgets_init', 'uap_uganda_widgets_init' );
 function uap_uganda_scripts() {
 	wp_enqueue_style( 'uap-uganda-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'uap-uganda-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'uap-uganda-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'uap-uganda-assets-style', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
 
+	wp_enqueue_script( 'uap-uganda-jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'uap-uganda-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'uap-uganda-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -181,3 +185,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function add_link_atts($atts) {
+	$atts['class'] = "nav-link";
+	return $atts;
+	}
+	
+	add_filter( 'nav_menu_link_attributes', 'add_link_atts');
