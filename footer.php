@@ -12,19 +12,30 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'uap-uganda' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'uap-uganda' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'uap-uganda' ), 'uap-uganda', '<a href="http://kukiliza.com">Imokol Faith Ruth</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="uap-main-footer">
+			<hr class="uap-footer-divider">
+			<div class="site-info">
+				<div class="container">
+					<div class="row">
+						<div class="col-8">
+							<h4>Address</h4>
+							<p></p>
+						</div>
+						<div class="col-4">
+							<h4>Contact</h4>
+							<p>hello@uap.ug</p>
+							<p>+256 781411614</p>
+						</div>
+					</div>
+				</div><!-- .site-info -->
+
+			</div>
+			<div class="uap-copyrights ml-auto mt-2 mt-lg-0">
+				<div class="container">
+					<p>All rights reserved uap uganda 2020</p>
+				</div>
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -26,7 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'uap-uganda' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<hr>
+		<hr class="uap-header-divider">
 		<div class="uap-main-header">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg">
@@ -58,7 +58,7 @@
 				</nav>
 			</div>
 		</div>
-		<hr>
+		<hr class="uap-header-divider">
 
 		
 	</header><!-- #masthead -->
